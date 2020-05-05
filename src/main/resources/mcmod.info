@@ -1,7 +1,7 @@
 [
 {
   "modid": "combatminions",
-  "name": "Combat Minions",
+  "name": "Magical Combat Minions",
   "description": "",
   "version": "${version}",
   "mcversion": "${mcversion}",
