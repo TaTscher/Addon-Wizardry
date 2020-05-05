@@ -1,4 +1,4 @@
-package fr.tatcher.combatminions;
+package fr.tatscher.combatminions;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
