@@ -1,13 +1,15 @@
 package fr.tatscher.combatminions;
 
+import fr.tatscher.combatminions.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = CombatMinions.MODID, name = CombatMinions.NAME, version = CombatMinions.VERSION)
+@Mod(modid = CombatMinions.MODID, name = CombatMinions.NAME, version = CombatMinions.VERSION, dependencies = "required-after:ebwizardry")
 public class CombatMinions {
     public static final String MODID = "combatminions";
     public static final String NAME = "Magical Combat Minions";
@@ -16,17 +18,23 @@ public class CombatMinions {
     @Mod.Instance
     public static CombatMinions instance;
 
-    //@SidedProxy(clientSide = , serverSide = )
+    @SidedProxy(clientSide = "fr.tatscher.combatminions.proxy.ClientProxy", serverSide = "fr.tatscher.combatminions.proxy.ServerProxy")
+    public static CommonProxy proxy;
 
     private static Logger logger;
-    //oui
+
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
-        logger = event.getModLog();
+    public void preInit(FMLPreInitializationEvent event) {
+        proxy.preInit();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event){
+        proxy.init();
+    }
+
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        proxy.postInit();
     }
 }
