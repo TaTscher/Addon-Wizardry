@@ -1,3 +1,3 @@
 {
-	"spell.summon_lightning_wraith": 	{"category": "spells", "sounds": ["mob/wither/idle1", "mob/wither/idle2", "mob/wither/idle3", "mob/wither/idle4"]}
+	"spell.summon_miner": 	{"category": "spells", "sounds": ["mob/wither/idle1", "mob/wither/idle2", "mob/wither/idle3", "mob/wither/idle4"]}
 }
