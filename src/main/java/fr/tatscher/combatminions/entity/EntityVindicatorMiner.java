@@ -28,7 +28,7 @@ public class EntityVindicatorMiner extends EntityVindicator implements ISummoned
     }
     @Override public UUID func_184753_b() {
         return casterUUID;
-    } //getOwnerId ISummonedCreature*/
+    } //getOwnerId ISummonedCreature
     @Override public void setOwnerId(UUID uuid) {
         this.casterUUID = uuid;
     }
