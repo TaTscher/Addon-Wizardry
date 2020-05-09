@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
 
 @ObjectHolder(CombatMinions.MODID)
 @Mod.EventBusSubscriber
-public class SpellRegistry {
+public final class SpellRegistry {
     private SpellRegistry(){}
 
     @Nonnull

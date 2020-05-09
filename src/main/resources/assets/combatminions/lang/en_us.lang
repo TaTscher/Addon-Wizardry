@@ -1,0 +1,3 @@
+entity.combatminions\:vindicator_miner.name=Vindicator Miner
+spell.tfspellpack\:summon_miner=Summon Miner
+spell.tfspellpack\:summon_miner.desc=Summons a miner to mine a 5x5 zone under it.

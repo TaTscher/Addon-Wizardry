@@ -2,6 +2,7 @@ package fr.tatscher.combatminions.entity;
 
 import electroblob.wizardry.Wizardry;
 import electroblob.wizardry.entity.living.ISummonedCreature;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityVindicator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -25,28 +26,23 @@ public class EntityVindicatorMiner extends EntityVindicator implements ISummoned
     @Override public void setLifetime(int lifetime) {
         this.lifetime = lifetime;
     }
-    @Override public UUID func_184753_b() { //getOwnerId ISummonedCreature
+    @Override public UUID func_184753_b() {
         return casterUUID;
-    } //getOwnerId
+    } //getOwnerId ISummonedCreature*/
     @Override public void setOwnerId(UUID uuid) {
         this.casterUUID = uuid;
+    }
+    @Override public UUID getOwnerId() {
+        return casterUUID;
+    }
+    @Override public Entity getOwner() {
+        return getCaster();
     }
 
     public EntityVindicatorMiner(World world){
         super(world);
         this.experienceValue = 0;
     }
-
-/*
-    @Override
-    public UUID getOwnerId() {
-        return null;
-    }
-
-    @Override
-    public Entity getOwner() {
-        return null;
-    }*/
 
     @Override
     public void onUpdate() {
@@ -70,23 +66,26 @@ public class EntityVindicatorMiner extends EntityVindicator implements ISummoned
     }
 
     @Override
+    @SuppressWarnings("NullableProblems")
     protected boolean processInteract(EntityPlayer player, EnumHand hand) {
         return super.processInteract(player, hand) || this.interactDelegate(player, hand);
     }
 
     @Override
+    @SuppressWarnings("NullableProblems")
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
         this.writeNBTDelegate(compound);
     }
 
     @Override
+    @SuppressWarnings("NullableProblems")
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
         this.readNBTDelegate(compound);
     }
 
-    @Override protected int getExperiencePoints(EntityPlayer player) {
+    @Override @SuppressWarnings("NullableProblems") protected int getExperiencePoints(EntityPlayer player) {
         return 0;
     }
     @Override protected boolean canDropLoot() {
@@ -112,6 +111,7 @@ public class EntityVindicatorMiner extends EntityVindicator implements ISummoned
     }
 
     @Override
+    @SuppressWarnings("NullableProblems")
     public ITextComponent getDisplayName() {
         if(getCaster() != null){
             return new TextComponentTranslation(NAMEPLATE_TRANSLATION_KEY, getCaster().getName(),

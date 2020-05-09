@@ -1,6 +1,6 @@
 package fr.tatscher.combatminions;
 
-import fr.tatscher.combatminions.proxy.CommonProxy;
+import fr.tatscher.combatminions.proxy.IProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -19,22 +19,22 @@ public class CombatMinions {
     public static CombatMinions instance;
 
     @SidedProxy(clientSide = "fr.tatscher.combatminions.proxy.ClientProxy", serverSide = "fr.tatscher.combatminions.proxy.ServerProxy")
-    public static CommonProxy proxy;
+    public static IProxy proxy;
 
     private static Logger logger;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        proxy.preInit();
+        proxy.preInit(event);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event){
-        proxy.init();
+        proxy.init(event);
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        proxy.postInit();
+        proxy.postInit(event);
     }
 }
