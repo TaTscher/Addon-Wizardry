@@ -26,17 +26,11 @@ public class EntityVindicatorMiner extends EntityVindicator implements ISummoned
     @Override public void setLifetime(int lifetime) {
         this.lifetime = lifetime;
     }
-    @Override public UUID func_184753_b() {
-        return casterUUID;
-    } //getOwnerId ISummonedCreature
     @Override public void setOwnerId(UUID uuid) {
         this.casterUUID = uuid;
     }
     @Override public UUID getOwnerId() {
         return casterUUID;
-    }
-    @Override public Entity getOwner() {
-        return getCaster();
     }
 
     public EntityVindicatorMiner(World world){

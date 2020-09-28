@@ -33,7 +33,7 @@ repositories {
 }
 
 dependencies {
-    compile "electroblobs-wizardry:ElectroblobsWizardry:4.2.11:MC1.12.2"
+    deobfCompile "electroblobs-wizardry:ElectroblobsWizardry:4.2.11:MC1.12.2"
 }
 
 processResources {
